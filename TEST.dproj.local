@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.038,C:\Users\SBV\Desktop\Delphi\Project1.dproj=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\TEST.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.660,C:\Users\SBV\Desktop\Delphi\Unit1.dfm=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufMAin.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.080,=C:\Users\SBV\Desktop\Delphi\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.201,C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufChange.dfm=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.950,=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.545,=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.400,C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufAddGame.pas=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.400,C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufAddGame.dfm=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.201,C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufChange.pas=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.660,C:\Users\SBV\Desktop\Delphi\Unit1.pas=C:\Users\SBV\Desktop\ТЕСТ(курсовая)\ufMAin.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.603,=C:\Users\SBV\Desktop\Delphi\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.682,=C:\Users\SBV\Desktop\Delphi\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
