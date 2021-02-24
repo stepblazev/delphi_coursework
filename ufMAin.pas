@@ -110,7 +110,7 @@ begin
         c := 1;
         break
       end;
-  if c = 0 then ShowMessage('Ёлемент не найден!');
+  if c = 0 then MessageBox(handle, PChar('Ёлемент не найден'), PChar('ќшибка'), MB_ICONWARNING);
   eNameSearch.Clear;
 end;
 

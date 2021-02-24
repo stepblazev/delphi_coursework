@@ -50,7 +50,7 @@ end;
 procedure TfChange.FormActivate(Sender: TObject);
 begin
   lNameFix.Caption := fMain.lName.Caption;
-  cbStatusChanged.Text := fMain.lStatus.Caption;
+  cbStatusChanged.Text := fMain.ini.ReadString(st, 'Status', 'Пройдена');
   cbRateChanged.Text := fMain.lRate.Caption;
   mCommentsChanged.Text := fMain.mComments.Text;
 end;

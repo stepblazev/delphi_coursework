@@ -173,7 +173,9 @@ object fMain: TfMain
       Width = 678
       Height = 57
       Anchors = [akLeft, akTop, akRight]
+      ParentShowHint = False
       ReadOnly = True
+      ShowHint = False
       TabOrder = 0
     end
   end
@@ -181,7 +183,7 @@ object fMain: TfMain
     Left = 438
     Top = 209
     Width = 74
-    Height = 24
+    Height = 23
     Anchors = [akRight, akBottom]
     Caption = #1055#1086#1080#1089#1082
     TabOrder = 5
