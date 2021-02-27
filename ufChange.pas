@@ -41,16 +41,28 @@ begin
   fMain.ini.WriteString(st, 'Rate', cbRateChanged.Text);
   fMain.ini.WriteString(st, 'Comments', mCommentsChanged.Text);
 
-  fMain.lName.Caption := cbStatusChanged.Text;
   fMain.lStatus.Caption := cbStatusChanged.Text;
   fMain.lRate.Caption := cbRateChanged.Text;
   fMain.mComments.Text := mCommentsChanged.Text;
 end;
 
 procedure TfChange.FormActivate(Sender: TObject);
+var i: integer;
 begin
+for i := 0 to 3 do
+  if cbStatusChanged.Items[i] = fMain.lStatus.Caption then
+    begin
+      cbStatusChanged.ItemIndex := i;
+      break
+    end;
+for i := 0 to 10 do
+  if cbRateChanged.Items[i] = fMain.lRate.Caption then
+    begin
+      cbRateChanged.ItemIndex := i;
+      break
+    end;
+
   lNameFix.Caption := fMain.lName.Caption;
-  cbStatusChanged.Text := fMain.lStatus.Caption;
   cbRateChanged.Text := fMain.lRate.Caption;
   mCommentsChanged.Text := fMain.mComments.Text;
 end;

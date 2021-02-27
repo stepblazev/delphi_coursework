@@ -22,7 +22,7 @@ object fMain: TfMain
   PixelsPerInch = 120
   TextHeight = 16
   object lTime: TLabel
-    Left = 635
+    Left = 638
     Top = 264
     Width = 52
     Height = 16
@@ -306,7 +306,7 @@ object fMain: TfMain
     OnClick = bSortClick
   end
   object mm: TMainMenu
-    Left = 658
+    Left = 576
     Top = 236
     object N1: TMenuItem
       Caption = #1060#1072#1081#1083
@@ -325,20 +325,20 @@ object fMain: TfMain
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 626
+    Left = 544
     Top = 236
   end
   object sd1: TSaveDialog
     Filter = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083' (*.txt) | *.txt'
-    Left = 572
+    Left = 490
     Top = 236
   end
   object cd1: TColorDialog
-    Left = 539
+    Left = 457
     Top = 236
   end
   object opd1: TOpenPictureDialog
-    Left = 505
+    Left = 423
     Top = 237
   end
 end
