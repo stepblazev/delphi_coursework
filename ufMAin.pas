@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Buttons,
-  Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls;
+  Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs;
 
 type
   TfMain = class(TForm)
@@ -33,6 +33,9 @@ type
     cd1: TColorDialog;
     bSearch: TBitBtn;
     eNameSearch: TEdit;
+    mImage: TImage;
+    BitBtn1: TBitBtn;
+    opd1: TOpenPictureDialog;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -43,6 +46,7 @@ type
     procedure bChangeClick(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure bSearchClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -91,12 +95,25 @@ begin
       lName.Caption := 'Игра не выбрана';
       lStatus.Caption := 'Игра не выбрана';
       lRate.Caption := 'Игра не выбрана';
+      mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
       mComments.Clear;
 
       ini.WriteInteger('Main', 'CountGames', lbMain.Count);
     end
     else MessageBox(handle, PChar('Выберите объект для удаления!'), PChar('Ошибка'), MB_ICONWARNING);
 
+end;
+
+procedure TfMain.BitBtn1Click(Sender: TObject);
+begin
+  if lbMain.ItemIndex < 0 then
+    MessageBox(handle, PChar('Элемент не выбран'), PChar('Ошибка'), MB_ICONWARNING)
+  else if opd1.Execute then
+    begin
+      mImage.Picture.LoadFromFile(opd1.FileName);
+      {ini добавить запись директории, где находится картинка}
+      ini.WriteString(lName.Caption, 'PictureDir', opd1.FileName);
+    end;
 end;
 
 procedure TfMain.bSearchClick(Sender: TObject);
@@ -158,6 +175,7 @@ begin
     lName.Caption := ini.ReadString(st, 'Name', 'Нет данных');
     lStatus.Caption := ini.ReadString(st, 'Status', 'Нет данных');
     lRate.Caption := ini.ReadString(st, 'Rate', 'Нет данных');
+    mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
 
     mComments.Text := ini.ReadString(st, 'Comments', 'Нет данных');
   end;
