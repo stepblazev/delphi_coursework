@@ -35,7 +35,7 @@ object fMain: TfMain
     Font.Style = []
     ParentFont = False
   end
-  object Image1: TImage
+  object mImage: TImage
     Left = 493
     Top = 8
     Width = 193
@@ -270,17 +270,17 @@ object fMain: TfMain
     end
   end
   object bSearch: TBitBtn
-    Left = 105
-    Top = 246
-    Width = 98
-    Height = 30
+    Left = 216
+    Top = 249
+    Width = 68
+    Height = 27
     Anchors = [akRight, akBottom]
     Caption = #1055#1086#1080#1089#1082
     TabOrder = 5
     OnClick = bSearchClick
   end
   object eNameSearch: TEdit
-    Left = 209
+    Left = 290
     Top = 249
     Width = 193
     Height = 24
@@ -294,10 +294,11 @@ object fMain: TfMain
     Height = 25
     Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
     TabOrder = 7
+    OnClick = BitBtn1Click
   end
   object mm: TMainMenu
-    Left = 562
-    Top = 244
+    Left = 450
+    Top = 204
     object N1: TMenuItem
       Caption = #1060#1072#1081#1083
       object N2: TMenuItem
@@ -315,16 +316,20 @@ object fMain: TfMain
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 530
-    Top = 244
+    Left = 418
+    Top = 204
   end
   object sd1: TSaveDialog
     Filter = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083' (*.txt) | *.txt'
-    Left = 476
-    Top = 244
+    Left = 364
+    Top = 204
   end
   object cd1: TColorDialog
-    Left = 443
-    Top = 244
+    Left = 331
+    Top = 204
+  end
+  object opd1: TOpenPictureDialog
+    Left = 297
+    Top = 205
   end
 end
