@@ -149,6 +149,8 @@ object fMain: TfMain
     Height = 34
     Anchors = [akLeft, akBottom]
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+    Kind = bkOK
+    NumGlyphs = 2
     TabOrder = 1
     OnClick = bAddClick
   end
@@ -159,14 +161,16 @@ object fMain: TfMain
     Height = 34
     Anchors = [akLeft, akBottom]
     Caption = #1059#1076#1072#1083#1080#1090#1100
+    Kind = bkCancel
+    NumGlyphs = 2
     TabOrder = 2
     OnClick = bDelClick
   end
   object bChange: TBitBtn
     Left = 5
-    Top = 246
+    Top = 249
     Width = 97
-    Height = 30
+    Height = 27
     Anchors = [akLeft, akBottom]
     Caption = #1048#1079#1084#1077#1085#1080#1090#1100
     TabOrder = 3
@@ -298,9 +302,9 @@ object fMain: TfMain
   end
   object bSort: TBitBtn
     Left = 106
-    Top = 246
+    Top = 249
     Width = 97
-    Height = 30
+    Height = 27
     Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100
     TabOrder = 8
     OnClick = bSortClick
@@ -312,7 +316,13 @@ object fMain: TfMain
       Caption = #1060#1072#1081#1083
       object N2: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1092#1072#1081#1083
+        ShortCut = 16467
         OnClick = N2Click
+      end
+      object N3: TMenuItem
+        Caption = #1042#1099#1081#1090#1080
+        ShortCut = 8219
+        OnClick = N3Click
       end
     end
     object N5: TMenuItem

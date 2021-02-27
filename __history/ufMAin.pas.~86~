@@ -37,6 +37,7 @@ type
     BitBtn1: TBitBtn;
     opd1: TOpenPictureDialog;
     bSort: TBitBtn;
+    N3: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -126,11 +127,11 @@ begin
     if pos(AnsiLowerCase(lbMain.Items[i]), AnsiLowerCase(eNameSearch.Text)) > 0 then
       begin
         lbMain.ItemIndex := i;
-        lName.Caption :=
-        lStatus.Caption :=
-        lRate.Caption :=
-        mComments.Text :=
-        mImage.Picture.LoadFromFile(ini.ReadString(lbMain.ItemIndex));
+        lName.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Name', 'Нет данных');
+        lStatus.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Status', 'Нет данных');
+        lRate.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Rate', 'Нет данных');
+        mComments.Text := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Comments', 'Нет данных');
+        mImage.Picture.LoadFromFile(ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
         c := 1;
         break
       end;

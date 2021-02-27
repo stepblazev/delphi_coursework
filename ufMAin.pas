@@ -37,6 +37,7 @@ type
     BitBtn1: TBitBtn;
     opd1: TOpenPictureDialog;
     bSort: TBitBtn;
+    N3: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -49,6 +50,7 @@ type
     procedure bSearchClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure bSortClick(Sender: TObject);
+    procedure N3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -216,6 +218,11 @@ begin
       else
         lbMain.Items.SaveToFile(sd1.FileName + '.txt');
     end;
+end;
+
+procedure TfMain.N3Click(Sender: TObject);
+begin
+  fMain.Close;
 end;
 
 procedure TfMain.N6Click(Sender: TObject);
