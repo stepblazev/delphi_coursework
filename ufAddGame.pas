@@ -41,6 +41,8 @@ begin
   fMain.ini.WriteString(leName.Text, 'Rate', cbRate.Text);
 
   fMain.ini.WriteString(leName.Text, 'Comments', mComments2.Text);
+
+  fMain.lCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
 end;
 
 procedure TfAddGame.FormActivate(Sender: TObject);

@@ -126,6 +126,20 @@ object fMain: TfMain
     Proportional = True
     Stretch = True
   end
+  object lCount: TLabel
+    Left = 470
+    Top = 209
+    Width = 7
+    Height = 16
+    Caption = '0'
+  end
+  object Label5: TLabel
+    Left = 391
+    Top = 209
+    Width = 73
+    Height = 16
+    Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086':'
+  end
   object lbMAin: TListBox
     Left = 8
     Top = 8
@@ -275,9 +289,9 @@ object fMain: TfMain
   end
   object bSearch: TBitBtn
     Left = 215
-    Top = 208
+    Top = 252
     Width = 68
-    Height = 27
+    Height = 23
     Anchors = [akRight, akBottom]
     Caption = #1055#1086#1080#1089#1082
     TabOrder = 5
@@ -285,9 +299,9 @@ object fMain: TfMain
   end
   object eNameSearch: TEdit
     Left = 289
-    Top = 210
+    Top = 253
     Width = 193
-    Height = 24
+    Height = 23
     Anchors = [akRight, akBottom]
     TabOrder = 6
   end
@@ -310,7 +324,7 @@ object fMain: TfMain
     OnClick = bSortClick
   end
   object mm: TMainMenu
-    Left = 576
+    Left = 656
     Top = 236
     object N1: TMenuItem
       Caption = #1060#1072#1081#1083
@@ -335,20 +349,20 @@ object fMain: TfMain
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 544
+    Left = 624
     Top = 236
   end
   object sd1: TSaveDialog
     Filter = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083' (*.txt) | *.txt'
-    Left = 490
+    Left = 570
     Top = 236
   end
   object cd1: TColorDialog
-    Left = 457
+    Left = 537
     Top = 236
   end
   object opd1: TOpenPictureDialog
-    Left = 423
+    Left = 503
     Top = 237
   end
 end

@@ -38,6 +38,8 @@ type
     opd1: TOpenPictureDialog;
     bSort: TBitBtn;
     N3: TMenuItem;
+    lCount: TLabel;
+    Label5: TLabel;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -59,6 +61,7 @@ type
 
 var
   fMain: TfMain;
+  count_games: integer;
 
 implementation
 
@@ -103,6 +106,7 @@ begin
       mComments.Clear;
 
       ini.WriteInteger('Main', 'CountGames', lbMain.Count);
+      fMain.lCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
     end
     else MessageBox(handle, PChar('Выберите объект для удаления!'), PChar('Ошибка'), MB_ICONWARNING);
 
@@ -115,6 +119,7 @@ begin
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
+      //CopyFile(PChar(opd1.FileName), PChar(ExtractFileDir(Application.ExeName)), false);
       ini.WriteString(lName.Caption, 'PictureDir', opd1.FileName);
     end;
 end;
@@ -171,6 +176,8 @@ begin
         st := ini.ReadString('Main', IntToStr(i), 'ERROR');
         lbMain.Items.Add(st);
       end;
+
+  lCount.Caption := IntToStr(lbMAin.Items.Count);
 end;
 
 procedure TfMain.FormDestroy(Sender: TObject);
