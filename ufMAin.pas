@@ -99,7 +99,7 @@ begin
       lName.Caption := 'Игра не выбрана';
       lStatus.Caption := 'Игра не выбрана';
       lRate.Caption := 'Игра не выбрана';
-      mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
+      mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
       mComments.Clear;
 
       ini.WriteInteger('Main', 'CountGames', lbMain.Count);
@@ -115,7 +115,6 @@ begin
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
-      {ini добавить запись директории, где находится картинка}
       ini.WriteString(lName.Caption, 'PictureDir', opd1.FileName);
     end;
 end;
@@ -132,7 +131,7 @@ begin
         lStatus.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Status', 'Нет данных');
         lRate.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Rate', 'Нет данных');
         mComments.Text := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Comments', 'Нет данных');
-        mImage.Picture.LoadFromFile(ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
+        mImage.Picture.LoadFromFile(ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
         c := 1;
         break
       end;
@@ -203,7 +202,7 @@ begin
     lName.Caption := ini.ReadString(st, 'Name', 'Нет данных');
     lStatus.Caption := ini.ReadString(st, 'Status', 'Нет данных');
     lRate.Caption := ini.ReadString(st, 'Rate', 'Нет данных');
-    mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', 'C:\Users\SBV\Downloads\delphi_coursework\unnamed.png'));
+    mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
 
     mComments.Text := ini.ReadString(st, 'Comments', 'Нет данных');
   end;
