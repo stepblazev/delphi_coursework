@@ -113,14 +113,15 @@ begin
 end;
 
 procedure TfMain.BitBtn1Click(Sender: TObject);
+var way: string[50];
 begin
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Ёлемент не выбран'), PChar('ќшибка'), MB_ICONWARNING)
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
-      //CopyFile(PChar(opd1.FileName), PChar(ExtractFileDir(Application.ExeName)), false);
-      ini.WriteString(lName.Caption, 'PictureDir', opd1.FileName);
+      CopyFile(PChar(opd1.FileName), PChar(ExtractFileDir(Application.ExeName) + lName.Caption + '.png'), false);
+      ini.WriteString(lName.Caption, 'PictureDir', ExtractFileDir(Application.ExeName) + lName.Caption + '.png');
     end;
 end;
 
