@@ -2,7 +2,7 @@ object fAddGame: TfAddGame
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1080#1075#1088#1091
+  Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1086#1073#1098#1077#1082#1090
   ClientHeight = 352
   ClientWidth = 285
   Color = clBtnFace
@@ -60,9 +60,9 @@ object fAddGame: TfAddGame
     Top = 32
     Width = 265
     Height = 24
-    EditLabel.Width = 118
+    EditLabel.Width = 75
     EditLabel.Height = 21
-    EditLabel.Caption = #1053#1072#1079#1074#1072#1085#1080#1077' '#1080#1075#1088#1099
+    EditLabel.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
     EditLabel.Font.Charset = DEFAULT_CHARSET
     EditLabel.Font.Color = clWindowText
     EditLabel.Font.Height = -17

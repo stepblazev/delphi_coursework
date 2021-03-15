@@ -40,6 +40,7 @@ type
     N3: TMenuItem;
     lCount: TLabel;
     Label5: TLabel;
+    Image1: TImage;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -86,6 +87,7 @@ procedure TfMain.bDelClick(Sender: TObject);
 var st: string[30];
     i, k: integer;
 begin
+  Image1.Hide;
   if lbMain.ItemIndex >= 0 then
     begin
       st := lbMain.Items[lbMain.ItemIndex];
@@ -125,6 +127,7 @@ begin
     end;
 end;
 
+
 procedure TfMain.bSearchClick(Sender: TObject);
 var i, c: integer;
 begin
@@ -139,6 +142,20 @@ begin
         mComments.Text := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Comments', 'Нет данных');
         mImage.Picture.LoadFromFile(ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
         c := 1;
+        Image1.Show;
+      case StrToInt(lRate.Caption) of
+      0: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
+      1: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
+      2: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
+      3: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
+      4: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
+      5: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
+      6: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
+      7: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
+      8: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
+      9: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
+      10: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+      end;
         break
       end;
   if c = 0 then MessageBox(handle, PChar('Элемент не найден'), PChar('Ошибка'), MB_ICONWARNING);
@@ -211,6 +228,21 @@ begin
     lStatus.Caption := ini.ReadString(st, 'Status', 'Нет данных');
     lRate.Caption := ini.ReadString(st, 'Rate', 'Нет данных');
     mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
+
+    Image1.Show;
+    case StrToInt(lRate.Caption) of
+      0: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
+      1: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
+      2: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
+      3: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
+      4: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
+      5: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
+      6: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
+      7: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
+      8: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
+      9: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
+      10: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+    end;
 
     mComments.Text := ini.ReadString(st, 'Comments', 'Нет данных');
   end;
