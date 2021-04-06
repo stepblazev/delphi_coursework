@@ -41,6 +41,7 @@ type
     lCount: TLabel;
     Label5: TLabel;
     Image1: TImage;
+    StatusBar1: TStatusBar;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);

@@ -42,12 +42,13 @@ begin
 
   fMain.ini.WriteString(leName.Text, 'Comments', mComments2.Text);
 
-  count_games := fMain.lbMAin.Items.Count;
-  fMain.lCount.Caption := 'Количество: ', count_games;
+  fMain.lCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
 end;
 
 procedure TfAddGame.FormActivate(Sender: TObject);
 begin
+  fChange.Color := fMain.Color;
+
   leName.Clear;
   leName.SetFocus;
 

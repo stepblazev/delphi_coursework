@@ -32,6 +32,8 @@ implementation
 
 {$R *.dfm}
 
+uses ufChange;
+
 procedure TfAddGame.bAddGameClick(Sender: TObject);
 begin
   fMain.lbMAin.Items.Add(leName.Text);
@@ -47,6 +49,8 @@ end;
 
 procedure TfAddGame.FormActivate(Sender: TObject);
 begin
+  fAddGame.Color := fMain.Color;
+
   leName.Clear;
   leName.SetFocus;
 

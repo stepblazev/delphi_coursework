@@ -64,6 +64,8 @@ end;
 procedure TfChange.FormActivate(Sender: TObject);
 var i: integer;
 begin
+fChange.Color := fMain.Color;
+
 for i := 0 to 3 do
   if cbStatusChanged.Items[i] = fMain.lStatus.Caption then
     begin
