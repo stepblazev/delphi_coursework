@@ -13,6 +13,8 @@ object fSettings: TfSettings
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   PixelsPerInch = 120
   TextHeight = 16
   object Label1: TLabel
@@ -86,6 +88,7 @@ object fSettings: TfSettings
     ParentFont = False
     TabOrder = 1
     Visible = False
+    OnClick = CBsoundClick
   end
   object GroupBox2: TGroupBox
     Left = 0
@@ -96,7 +99,7 @@ object fSettings: TfSettings
     Caption = #1054#1087#1080#1089#1072#1085#1080#1077
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -15
+    Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False

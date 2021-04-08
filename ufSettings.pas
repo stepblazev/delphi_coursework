@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.CategoryButtons,
-  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.WinXCtrls;
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.WinXCtrls, IniFiles;
 
 type
   TfSettings = class(TForm)
@@ -20,6 +20,9 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure CBsoundClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -33,6 +36,8 @@ implementation
 
 {$R *.dfm}
 
+uses ufChange, ufMAin;
+
 procedure TfSettings.Button1Click(Sender: TObject);
 begin
   Label2.Caption := 'Здесь можно изменить состояние звука в прложении: выключить, если музыка не нужна и наоборот.';
@@ -43,14 +48,36 @@ end;
 
 procedure TfSettings.Button2Click(Sender: TObject);
 begin
+  Label2.Caption := 'Здесь, по своему желанию, можно изменить цвет интерфейса.';
+
   Label1.Caption := Button2.Caption;
   CBsound.Hide;
 end;
 
 procedure TfSettings.Button3Click(Sender: TObject);
 begin
+  Label2.Caption := 'Здесь находятся остальные настройки.';
+
   Label1.Caption := Button3.Caption;
   CBsound.Hide;
+end;
+
+procedure TfSettings.CBsoundClick(Sender: TObject);
+begin
+  fMain.MediaPlayer1.Play;
+  fMain.MediaPlayer1.Pause;
+end;
+
+procedure TfSettings.FormActivate(Sender: TObject);
+begin
+  fChange.Color := fMain.Color;
+  CBsound.Checked := fMain.ini.ReadBool('Main', 'Sound', True);
+  
+end;
+
+procedure TfSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  fMain.Ini.WriteBool('Main', 'Sound', CBsound.Checked);
 end;
 
 end.

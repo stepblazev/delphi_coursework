@@ -2992,6 +2992,18 @@ object fMain: TfMain
         Width = 50
       end>
   end
+  object MediaPlayer1: TMediaPlayer
+    Left = 433
+    Top = 356
+    Width = 253
+    Height = 30
+    AutoOpen = True
+    DeviceType = dtWaveAudio
+    DoubleBuffered = True
+    Visible = False
+    ParentDoubleBuffered = False
+    TabOrder = 10
+  end
   object mm: TMainMenu
     Left = 656
     Top = 236

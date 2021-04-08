@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Buttons,
-  Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs;
+  Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs,
+  Vcl.MPlayer;
 
 type
   TfMain = class(TForm)
@@ -42,6 +43,7 @@ type
     Label5: TLabel;
     Image1: TImage;
     StatusBar1: TStatusBar;
+    MediaPlayer1: TMediaPlayer;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -186,8 +188,12 @@ end;
 procedure TfMain.FormCreate(Sender: TObject);
 var i, k: integer; st: string[30];
 begin
+  MediaPlayer1.FileName := ExtractFilePath(Application.ExeName) + '\OST';
+
   ini := TIniFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
   fMain.Color := Ini.ReadInteger('Main', 'Color', fMain.Color);
+
+  if Ini.ReadBool('Main', 'Sound', True) then MediaPlayer1.Play else MediaPlayer1.Pause;
 
   k := ini.ReadInteger('Main', 'CountGames', 0);
   if k > 0 then
