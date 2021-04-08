@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   ufMAin in 'ufMAin.pas' {fMain},
   ufAddGame in 'ufAddGame.pas' {fAddGame},
-  ufChange in 'ufChange.pas' {fChange};
+  ufChange in 'ufChange.pas' {fChange},
+  ufSettings in 'ufSettings.pas' {fSettings};
 
 {$R *.res}
 
@@ -14,5 +15,6 @@ begin
   Application.CreateForm(TfMain, fMain);
   Application.CreateForm(TfAddGame, fAddGame);
   Application.CreateForm(TfChange, fChange);
+  Application.CreateForm(TfSettings, fSettings);
   Application.Run;
 end.

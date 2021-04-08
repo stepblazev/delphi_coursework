@@ -55,6 +55,7 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure bSortClick(Sender: TObject);
     procedure N3Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,7 +70,7 @@ implementation
 
 {$R *.dfm}
 
-uses ufAddGame, ufChange;
+uses ufAddGame, ufChange, ufSettings;
 
 procedure TfMain.bAddClick(Sender: TObject);
 begin
@@ -263,6 +264,11 @@ end;
 procedure TfMain.N3Click(Sender: TObject);
 begin
   fMain.Close;
+end;
+
+procedure TfMain.N5Click(Sender: TObject);
+begin
+  fSettings.ShowModal;
 end;
 
 procedure TfMain.N6Click(Sender: TObject);

@@ -2991,9 +2991,6 @@ object fMain: TfMain
         Text = #1054#1093#1074#1072#1090#1102#1082' '#1045#1074#1075#1077#1085#1080#1081' '#1057#1055'205'
         Width = 50
       end>
-    ExplicitLeft = 336
-    ExplicitTop = 240
-    ExplicitWidth = 0
   end
   object mm: TMainMenu
     Left = 656
@@ -3013,10 +3010,11 @@ object fMain: TfMain
     end
     object N5: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
-      object N6: TMenuItem
-        Caption = #1062#1074#1077#1090
-        OnClick = N6Click
-      end
+      OnClick = N5Click
+    end
+    object N6: TMenuItem
+      Caption = #1062#1074#1077#1090
+      OnClick = N6Click
     end
   end
   object Timer: TTimer
