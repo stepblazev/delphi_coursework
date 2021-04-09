@@ -114,4 +114,24 @@ object fSettings: TfSettings
       WordWrap = True
     end
   end
+  object bColor: TButton
+    Left = 135
+    Top = 118
+    Width = 75
+    Height = 25
+    Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+    TabOrder = 3
+    Visible = False
+    OnClick = bColorClick
+  end
+  object pColor: TPanel
+    Left = 135
+    Top = 40
+    Width = 74
+    Height = 72
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 4
+    Visible = False
+  end
 end

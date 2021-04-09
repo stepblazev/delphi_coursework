@@ -145,6 +145,7 @@ object fMain: TfMain
     Top = 209
     Width = 121
     Height = 38
+    Anchors = [akLeft, akBottom]
     Center = True
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000003E80000
@@ -2849,6 +2850,7 @@ object fMain: TfMain
     Top = 282
     Width = 694
     Height = 174
+    Anchors = [akLeft, akRight, akBottom]
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 4
