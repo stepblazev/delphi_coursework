@@ -188,8 +188,6 @@ end;
 procedure TfMain.FormCreate(Sender: TObject);
 var i, k: integer; st: string[30];
 begin
-  MediaPlayer1.FileName := ExtractFilePath(Application.ExeName) + '\OST';
-
   ini := TIniFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
   fMain.Color := Ini.ReadInteger('Main', 'Color', fMain.Color);
 

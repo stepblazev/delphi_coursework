@@ -79,6 +79,7 @@ object fSettings: TfSettings
     Top = 42
     Width = 113
     Height = 17
+    Alignment = taLeftJustify
     Caption = #1042#1082#1083#1102#1095#1080#1090#1100' '#1079#1074#1091#1082
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

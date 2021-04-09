@@ -2998,8 +2998,8 @@ object fMain: TfMain
     Width = 253
     Height = 30
     AutoOpen = True
-    DeviceType = dtWaveAudio
     DoubleBuffered = True
+    FileName = 'OST.mp3'
     Visible = False
     ParentDoubleBuffered = False
     TabOrder = 10
