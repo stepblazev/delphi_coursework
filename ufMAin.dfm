@@ -14,6 +14,8 @@ object fMain: TfMain
   Menu = mm
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
@@ -2987,12 +2989,17 @@ object fMain: TfMain
     Height = 19
     Panels = <
       item
+        Text = 'None'
+        Width = 50
+      end
+      item
         Alignment = taRightJustify
         BiDiMode = bdLeftToRight
         ParentBiDiMode = False
         Text = #1054#1093#1074#1072#1090#1102#1082' '#1045#1074#1075#1077#1085#1080#1081' '#1057#1055'205'
         Width = 50
       end>
+    ExplicitTop = 455
   end
   object MediaPlayer1: TMediaPlayer
     Left = 433
@@ -3025,10 +3032,6 @@ object fMain: TfMain
     object N5: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       OnClick = N5Click
-    end
-    object N6: TMenuItem
-      Caption = #1062#1074#1077#1090
-      OnClick = N6Click
     end
   end
   object Timer: TTimer

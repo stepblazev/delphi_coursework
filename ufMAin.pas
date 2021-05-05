@@ -30,7 +30,6 @@ type
     lName: TLabel;
     lStatus: TLabel;
     lRate: TLabel;
-    N6: TMenuItem;
     cd1: TColorDialog;
     bSearch: TBitBtn;
     eNameSearch: TEdit;
@@ -58,6 +57,8 @@ type
     procedure bSortClick(Sender: TObject);
     procedure N3Click(Sender: TObject);
     procedure N5Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses ufAddGame, ufChange, ufSettings;
+uses ufAddGame, ufChange, ufSettings, ufRofl;
 
 procedure TfMain.bAddClick(Sender: TObject);
 begin
@@ -183,6 +184,16 @@ begin
         end;
     end;
     end;
+end;
+
+procedure TfMain.FormActivate(Sender: TObject);
+begin
+  StatusBar1.Panels[0].Text := fRofl.le1.Text;
+end;
+
+procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  fRofl.Close;
 end;
 
 procedure TfMain.FormCreate(Sender: TObject);

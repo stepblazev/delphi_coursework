@@ -117,6 +117,10 @@
             <Form>fSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="ufRofl.pas">
+            <Form>fRofl</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

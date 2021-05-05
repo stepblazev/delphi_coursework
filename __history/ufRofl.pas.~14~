@@ -1,0 +1,38 @@
+unit ufRofl;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.jpeg;
+
+type
+  TfRofl = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Image1: TImage;
+    Label1: TLabel;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fRofl: TfRofl;
+
+implementation
+
+{$R *.dfm}
+
+uses ufMAin;
+
+procedure TfRofl.BitBtn1Click(Sender: TObject);
+begin
+  fMain.Show;
+  fRofl.Hide;
+end;
+
+end.
