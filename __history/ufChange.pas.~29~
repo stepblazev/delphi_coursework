@@ -1,0 +1,87 @@
+unit ufChange;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, ufMain, Vcl.Buttons, IniFiles;
+
+type
+  TfChange = class(TForm)
+    lNameFix: TLabel;
+    Label3: TLabel;
+    cbStatusChanged: TComboBox;
+    cbRateChanged: TComboBox;
+    Label4: TLabel;
+    mCommentsChanged: TMemo;
+    Label5: TLabel;
+    bAddGame: TBitBtn;
+    BitBtn1: TBitBtn;
+    procedure FormActivate(Sender: TObject);
+    procedure bAddGameClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fChange: TfChange;
+  st: string[30];
+
+implementation
+
+{$R *.dfm}
+
+procedure TfChange.bAddGameClick(Sender: TObject);
+begin
+  st := fMain.lName.Caption;
+
+  fMain.ini.WriteString(st, 'Status', cbStatusChanged.Text);
+  fMain.ini.WriteString(st, 'Rate', cbRateChanged.Text);
+  fMain.ini.WriteString(st, 'Comments', mCommentsChanged.Text);
+
+  fMain.lStatus.Caption := cbStatusChanged.Text;
+  fMain.lRate.Caption := cbRateChanged.Text;
+  fMain.mComments.Text := mCommentsChanged.Text;
+
+  fMain.Image1.Show;
+      case StrToInt(fMain.lRate.Caption) of
+      0: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
+      1: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
+      2: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
+      3: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
+      4: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
+      5: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
+      6: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
+      7: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
+      8: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
+      9: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
+      10: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+      end;
+end;
+
+procedure TfChange.FormActivate(Sender: TObject);
+var i: integer;
+begin
+fChange.Color := fMain.Color;
+
+for i := 0 to 3 do
+  if cbStatusChanged.Items[i] = fMain.lStatus.Caption then
+    begin
+      cbStatusChanged.ItemIndex := i;
+      break
+    end;
+for i := 0 to 10 do
+  if cbRateChanged.Items[i] = fMain.lRate.Caption then
+    begin
+      cbRateChanged.ItemIndex := i;
+      break
+    end;
+
+  lNameFix.Caption := fMain.lName.Caption;
+  cbRateChanged.Text := fMain.lRate.Caption;
+  mCommentsChanged.Text := fMain.mComments.Text;
+end;
+
+end.

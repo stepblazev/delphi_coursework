@@ -23,20 +23,6 @@ object fMain: TfMain
     475)
   PixelsPerInch = 120
   TextHeight = 16
-  object lTime: TLabel
-    Left = 634
-    Top = 258
-    Width = 52
-    Height = 16
-    Anchors = [akRight, akBottom]
-    Caption = '12:00:00'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object mImage: TImage
     Left = 493
     Top = 8
@@ -2839,7 +2825,7 @@ object fMain: TfMain
   end
   object bChange: TBitBtn
     Left = 5
-    Top = 249
+    Top = 247
     Width = 97
     Height = 27
     Anchors = [akLeft, akBottom]
@@ -2945,22 +2931,14 @@ object fMain: TfMain
     end
   end
   object bSearch: TBitBtn
-    Left = 215
-    Top = 251
-    Width = 68
-    Height = 23
+    Left = 609
+    Top = 239
+    Width = 77
+    Height = 27
     Anchors = [akRight, akBottom]
     Caption = #1055#1086#1080#1089#1082
     TabOrder = 5
     OnClick = bSearchClick
-  end
-  object eNameSearch: TEdit
-    Left = 289
-    Top = 252
-    Width = 193
-    Height = 24
-    Anchors = [akRight, akBottom]
-    TabOrder = 6
   end
   object BitBtn1: TBitBtn
     Left = 493
@@ -2969,17 +2947,19 @@ object fMain: TfMain
     Height = 25
     Anchors = [akTop, akRight]
     Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
-    TabOrder = 7
+    TabOrder = 6
     OnClick = BitBtn1Click
   end
   object bSort: TBitBtn
-    Left = 106
-    Top = 249
-    Width = 97
+    Left = 493
+    Top = 239
+    Width = 111
     Height = 27
-    Anchors = [akLeft, akBottom]
+    Anchors = [akRight, akBottom]
     Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100
-    TabOrder = 8
+    Kind = bkRetry
+    NumGlyphs = 2
+    TabOrder = 7
     OnClick = bSortClick
   end
   object StatusBar1: TStatusBar
@@ -2990,7 +2970,7 @@ object fMain: TfMain
     Panels = <
       item
         Text = 'None'
-        Width = 50
+        Width = 150
       end
       item
         Alignment = taRightJustify
@@ -3010,17 +2990,21 @@ object fMain: TfMain
     FileName = 'OST.mp3'
     Visible = False
     ParentDoubleBuffered = False
-    TabOrder = 10
+    TabOrder = 9
   end
   object mm: TMainMenu
-    Left = 656
-    Top = 236
+    Left = 648
+    Top = 284
     object N1: TMenuItem
       Caption = #1060#1072#1081#1083
       object N2: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1092#1072#1081#1083
         ShortCut = 16467
         OnClick = N2Click
+      end
+      object Word1: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' Word'
+        ShortCut = 16471
       end
       object N3: TMenuItem
         Caption = #1042#1099#1081#1090#1080
@@ -3035,20 +3019,20 @@ object fMain: TfMain
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 624
-    Top = 236
+    Left = 616
+    Top = 284
   end
   object sd1: TSaveDialog
     Filter = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083' (*.txt) | *.txt'
-    Left = 570
-    Top = 236
+    Left = 578
+    Top = 284
   end
   object cd1: TColorDialog
-    Left = 537
-    Top = 236
+    Left = 545
+    Top = 284
   end
   object opd1: TOpenPictureDialog
-    Left = 503
-    Top = 237
+    Left = 511
+    Top = 285
   end
 end

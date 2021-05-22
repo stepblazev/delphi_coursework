@@ -19,6 +19,10 @@ type
     Label2: TLabel;
     bColor: TButton;
     pColor: TPanel;
+    FontDialog1: TFontDialog;
+    Label3: TLabel;
+    Label4: TLabel;
+    bFont: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -26,6 +30,7 @@ type
     procedure CBsoundClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure bColorClick(Sender: TObject);
+    procedure bFontClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,10 +46,22 @@ implementation
 
 uses ufChange, ufMAin;
 
+procedure TfSettings.bFontClick(Sender: TObject);
+begin
+if FontDialog1.Execute then
+  fMain.lbMain.Font := FontDialog1.Font;
+
+Label4.Caption := fMain.lbMain.Font.Name;
+end;
+
 procedure TfSettings.Button1Click(Sender: TObject);
 begin
   bColor.Hide;
   pColor.Hide;
+  bFont.Hide;
+
+  Label4.Hide;
+  Label3.Hide;
 
   Label2.Caption := 'Здесь можно изменить состояние звука в прложении: выключить, если музыка не нужна и наоборот.';
 
@@ -55,6 +72,10 @@ end;
 procedure TfSettings.Button2Click(Sender: TObject);
 begin
   CBsound.Hide;
+  Label4.Hide;
+  Label3.Hide;
+
+  bFont.Hide;
   bColor.Show;
   pColor.Show;
 
@@ -71,7 +92,12 @@ begin
 
   Label2.Caption := 'Здесь находятся остальные настройки.';
 
-  Label1.Caption := Button3.Caption;
+  Label1.Caption := 'Шрифт';
+
+  bFont.Show;
+  Label3.Show;
+  Label4.Show;
+  Label4.Caption := fMain.lbMain.Font.Name;
 end;
 
 procedure TfSettings.bColorClick(Sender: TObject);
@@ -92,6 +118,14 @@ procedure TfSettings.FormActivate(Sender: TObject);
 begin
   CBsound.Checked := fMain.ini.ReadBool('Main', 'Sound', True);
   pColor.Color := fMain.Color;
+  pColor.Top := 40;
+  pColor.Left := 135;
+
+  bColor.Top := 126;
+  bColor.Left := 135;
+
+  CBsound.Top := 42;
+  CBsound.Left := 144;
 end;
 
 procedure TfSettings.FormClose(Sender: TObject; var Action: TCloseAction);

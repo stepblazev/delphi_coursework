@@ -2,7 +2,7 @@ object fSettings: TfSettings
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'fSettings'
+  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103
   ClientHeight = 215
   ClientWidth = 421
   Color = clBtnFace
@@ -28,6 +28,22 @@ object fSettings: TfSettings
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 133
+    Top = 42
+    Width = 101
+    Height = 16
+    Caption = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090':'
+    Visible = False
+  end
+  object Label4: TLabel
+    Left = 240
+    Top = 42
+    Width = 29
+    Height = 16
+    Caption = 'None'
+    Visible = False
   end
   object GroupBox1: TGroupBox
     Left = 0
@@ -75,8 +91,8 @@ object fSettings: TfSettings
     end
   end
   object CBsound: TCheckBox
-    Left = 144
-    Top = 42
+    Left = 220
+    Top = 8
     Width = 113
     Height = 17
     Alignment = taLeftJustify
@@ -115,8 +131,8 @@ object fSettings: TfSettings
     end
   end
   object bColor: TButton
-    Left = 135
-    Top = 118
+    Left = 338
+    Top = 86
     Width = 75
     Height = 25
     Caption = #1048#1079#1084#1077#1085#1080#1090#1100
@@ -125,13 +141,32 @@ object fSettings: TfSettings
     OnClick = bColorClick
   end
   object pColor: TPanel
-    Left = 135
-    Top = 40
+    Left = 339
+    Top = 8
     Width = 74
     Height = 72
     Color = clBlack
     ParentBackground = False
     TabOrder = 4
     Visible = False
+  end
+  object bFont: TButton
+    Left = 133
+    Top = 64
+    Width = 75
+    Height = 25
+    Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+    TabOrder = 5
+    Visible = False
+    OnClick = bFontClick
+  end
+  object FontDialog1: TFontDialog
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Left = 376
+    Top = 120
   end
 end

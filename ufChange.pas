@@ -47,17 +47,17 @@ begin
 
   fMain.Image1.Show;
       case StrToInt(fMain.lRate.Caption) of
-      0: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
-      1: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
-      2: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
-      3: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
-      4: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
-      5: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
-      6: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
-      7: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
-      8: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
-      9: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
-      10: fMain.Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+      0: fMain.Image1.Picture.LoadFromFile('0stars.png');
+      1: fMain.Image1.Picture.LoadFromFile('1stars.png');
+      2: fMain.Image1.Picture.LoadFromFile('2stars.png');
+      3: fMain.Image1.Picture.LoadFromFile('3stars.png');
+      4: fMain.Image1.Picture.LoadFromFile('4stars.png');
+      5: fMain.Image1.Picture.LoadFromFile('5stars.png');
+      6: fMain.Image1.Picture.LoadFromFile('6stars.png');
+      7: fMain.Image1.Picture.LoadFromFile('7stars.png');
+      8: fMain.Image1.Picture.LoadFromFile('8stars.png');
+      9: fMain.Image1.Picture.LoadFromFile('9stars.png');
+      10: fMain.Image1.Picture.LoadFromFile('10stars.png')
       end;
 end;
 

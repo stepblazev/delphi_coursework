@@ -36,6 +36,10 @@ uses ufChange;
 
 procedure TfAddGame.bAddGameClick(Sender: TObject);
 begin
+if (leName.Text = '') or (leName.Text = ' ') then
+ShowMessage('Вы не ввели название!' + #13#10 + 'Повторите попытку!')
+else
+begin
   fMain.lbMAin.Items.Add(leName.Text);
 
   fMain.ini.WriteString(leName.Text, 'Name', leName.Text);
@@ -45,6 +49,7 @@ begin
   fMain.ini.WriteString(leName.Text, 'Comments', mComments2.Text);
 
   fMain.lCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
+end;
 end;
 
 procedure TfAddGame.FormActivate(Sender: TObject);

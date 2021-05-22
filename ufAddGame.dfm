@@ -79,12 +79,12 @@ object fAddGame: TfAddGame
     Style = csDropDownList
     ItemIndex = 0
     TabOrder = 1
-    Text = #1055#1088#1086#1081#1076#1077#1085#1072
+    Text = #1042#1099#1087#1086#1083#1077#1085#1077#1085#1086
     Items.Strings = (
-      #1055#1088#1086#1081#1076#1077#1085#1072
-      #1047#1072#1087#1083#1072#1085#1080#1088#1086#1074#1072#1085#1072
-      #1054#1090#1083#1086#1078#1077#1085#1072
-      #1041#1088#1086#1096#1077#1085#1072)
+      #1042#1099#1087#1086#1083#1077#1085#1077#1085#1086
+      #1047#1072#1087#1083#1072#1085#1080#1088#1086#1074#1072#1085#1086
+      #1054#1090#1083#1086#1078#1077#1085#1086
+      #1041#1088#1086#1096#1077#1085#1086)
   end
   object cbRate: TComboBox
     Left = 84
@@ -116,12 +116,13 @@ object fAddGame: TfAddGame
     TabOrder = 3
   end
   object bAddGame: TBitBtn
-    Left = 90
+    Left = 84
     Top = 311
-    Width = 88
+    Width = 94
     Height = 33
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-    ModalResult = 1
+    Kind = bkOK
+    NumGlyphs = 2
     TabOrder = 4
     OnClick = bAddGameClick
   end
@@ -131,7 +132,8 @@ object fAddGame: TfAddGame
     Width = 89
     Height = 33
     Caption = #1054#1090#1084#1077#1085#1072
-    ModalResult = 2
+    Kind = bkNo
+    NumGlyphs = 2
     TabOrder = 5
   end
 end

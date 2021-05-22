@@ -17,7 +17,6 @@ type
     N5: TMenuItem;
     bAdd: TBitBtn;
     bDel: TBitBtn;
-    lTime: TLabel;
     Timer: TTimer;
     bChange: TBitBtn;
     pMain: TPanel;
@@ -32,7 +31,6 @@ type
     lRate: TLabel;
     cd1: TColorDialog;
     bSearch: TBitBtn;
-    eNameSearch: TEdit;
     mImage: TImage;
     BitBtn1: TBitBtn;
     opd1: TOpenPictureDialog;
@@ -43,6 +41,7 @@ type
     Image1: TImage;
     StatusBar1: TStatusBar;
     MediaPlayer1: TMediaPlayer;
+    Word1: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -134,11 +133,12 @@ end;
 
 
 procedure TfMain.bSearchClick(Sender: TObject);
-var i, c: integer;
+var i, c: integer; s: string;
 begin
   c := 0;
+  s := InputBox('Поиск объекта','Введите название: ','');
   for i := 0 to lbMain.Items.Count - 1 do
-    if pos(AnsiLowerCase(lbMain.Items[i]), AnsiLowerCase(eNameSearch.Text)) > 0 then
+    if pos(AnsiLowerCase(lbMain.Items[i]), AnsiLowerCase(s)) > 0 then
       begin
         lbMain.ItemIndex := i;
         lName.Caption := ini.ReadString(lbMain.Items[lbMain.ItemIndex], 'Name', 'Нет данных');
@@ -149,22 +149,21 @@ begin
         c := 1;
         Image1.Show;
       case StrToInt(lRate.Caption) of
-      0: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
-      1: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
-      2: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
-      3: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
-      4: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
-      5: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
-      6: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
-      7: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
-      8: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
-      9: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
-      10: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+      0: Image1.Picture.LoadFromFile('0stars.png');
+      1: Image1.Picture.LoadFromFile('1stars.png');
+      2: Image1.Picture.LoadFromFile('2stars.png');
+      3: Image1.Picture.LoadFromFile('3stars.png');
+      4: Image1.Picture.LoadFromFile('4stars.png');
+      5: Image1.Picture.LoadFromFile('5stars.png');
+      6: Image1.Picture.LoadFromFile('6stars.png');
+      7: Image1.Picture.LoadFromFile('7stars.png');
+      8: Image1.Picture.LoadFromFile('8stars.png');
+      9: Image1.Picture.LoadFromFile('9stars.png');
+      10: Image1.Picture.LoadFromFile('10stars.png')
       end;
         break
       end;
   if c = 0 then MessageBox(handle, PChar('Элемент не найден'), PChar('Ошибка'), MB_ICONWARNING);
-  eNameSearch.Clear;
 end;
 
 procedure TfMain.bSortClick(Sender: TObject);
@@ -248,17 +247,17 @@ begin
 
     Image1.Show;
     case StrToInt(lRate.Caption) of
-      0: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\0stars.png');
-      1: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\1stars.png');
-      2: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\2stars.png');
-      3: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\3stars.png');
-      4: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\4stars.png');
-      5: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\5stars.png');
-      6: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\6stars.png');
-      7: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\7stars.png');
-      8: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\8stars.png');
-      9: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\9stars.png');
-      10: Image1.Picture.LoadFromFile(ExtractFileDir(Application.ExeName) + '\10stars.png')
+      0: Image1.Picture.LoadFromFile('0stars.png');
+      1: Image1.Picture.LoadFromFile('1stars.png');
+      2: Image1.Picture.LoadFromFile('2stars.png');
+      3: Image1.Picture.LoadFromFile('3stars.png');
+      4: Image1.Picture.LoadFromFile('4stars.png');
+      5: Image1.Picture.LoadFromFile('5stars.png');
+      6: Image1.Picture.LoadFromFile('6stars.png');
+      7: Image1.Picture.LoadFromFile('7stars.png');
+      8: Image1.Picture.LoadFromFile('8stars.png');
+      9: Image1.Picture.LoadFromFile('9stars.png');
+      10: Image1.Picture.LoadFromFile('10stars.png')
     end;
 
     mComments.Text := ini.ReadString(st, 'Comments', 'Нет данных');
@@ -294,9 +293,7 @@ end;
 
 procedure TfMain.TimerTimer(Sender: TObject);
 begin
-  Timer.Enabled := False;
-  lTime.Caption := TimeToStr(Time);
-  Timer.Enabled := True;
+  StatusBar1.Panels[1].Text := DateTimeToStr(Date + Time);
 end;
 
 end.

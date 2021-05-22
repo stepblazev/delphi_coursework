@@ -42,6 +42,7 @@ procedure TfRofl.BitBtn1Click(Sender: TObject);
 begin
   if le2.Text = '1234' then
     begin
+      ShowMessage('Добро пожаловать, ' + le1.Text + '!' + #13#10 + 'Рады вас видеть!');
       fMain.Show;
       fRofl.Hide;
     end
