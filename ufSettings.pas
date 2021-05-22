@@ -51,7 +51,7 @@ begin
 if FontDialog1.Execute then
   fMain.lbMain.Font := FontDialog1.Font;
 
-Label4.Caption := fMain.lbMain.Font.Name;
+Label4.Caption := fMain.lbMain.Font.Name + ' (' + IntToStr(fMain.lbMAin.Font.Size) + ')';
 end;
 
 procedure TfSettings.Button1Click(Sender: TObject);
@@ -97,7 +97,7 @@ begin
   bFont.Show;
   Label3.Show;
   Label4.Show;
-  Label4.Caption := fMain.lbMain.Font.Name;
+  Label4.Caption := fMain.lbMain.Font.Name + ' (' + IntToStr(fMain.lbMAin.Font.Size) + ')';
 end;
 
 procedure TfSettings.bColorClick(Sender: TObject);

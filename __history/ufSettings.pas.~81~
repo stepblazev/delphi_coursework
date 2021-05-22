@@ -50,6 +50,8 @@ procedure TfSettings.bFontClick(Sender: TObject);
 begin
 if FontDialog1.Execute then
   fMain.lbMain.Font := FontDialog1.Font;
+
+Label4.Caption := fMain.lbMain.Font.Name;
 end;
 
 procedure TfSettings.Button1Click(Sender: TObject);
@@ -90,12 +92,12 @@ begin
 
   Label2.Caption := 'Здесь находятся остальные настройки.';
 
-  Label1.Caption := Button3.Caption;
+  Label1.Caption := 'Шрифт';
 
   bFont.Show;
   Label3.Show;
   Label4.Show;
-  Label4.Font := fMain.lbMain.Font;
+  Label4.Caption := fMain.lbMain.Font.Name;
 end;
 
 procedure TfSettings.bColorClick(Sender: TObject);

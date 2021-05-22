@@ -3003,8 +3003,9 @@ object fMain: TfMain
         OnClick = N2Click
       end
       object Word1: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' Word'
+        Caption = #1055#1077#1088#1077#1085#1077#1089#1090#1080' '#1074' Word'
         ShortCut = 16471
+        OnClick = Word1Click
       end
       object N3: TMenuItem
         Caption = #1042#1099#1081#1090#1080
@@ -3015,6 +3016,9 @@ object fMain: TfMain
     object N5: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       OnClick = N5Click
+    end
+    object N4: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
     end
   end
   object Timer: TTimer
@@ -3033,6 +3037,13 @@ object fMain: TfMain
   end
   object opd1: TOpenPictureDialog
     Left = 511
+    Top = 285
+  end
+  object WordApp: TWordApplication
+    AutoConnect = False
+    ConnectKind = ckRunningOrNew
+    AutoQuit = False
+    Left = 471
     Top = 285
   end
 end

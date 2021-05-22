@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Buttons,
   Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs,
-  Vcl.MPlayer;
+  Vcl.MPlayer, Vcl.OleServer, WordXP, ComObj;
 
 type
   TfMain = class(TForm)
@@ -42,6 +42,8 @@ type
     StatusBar1: TStatusBar;
     MediaPlayer1: TMediaPlayer;
     Word1: TMenuItem;
+    N4: TMenuItem;
+    WordApp: TWordApplication;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -58,6 +60,7 @@ type
     procedure N5Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
+    procedure Word1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -199,7 +202,11 @@ procedure TfMain.FormCreate(Sender: TObject);
 var i, k: integer; st: string[30];
 begin
   ini := TIniFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
+
   fMain.Color := Ini.ReadInteger('Main', 'Color', fMain.Color);
+
+  lbMAin.Font.Name := Ini.ReadString('Main', 'FontType', 'Tahoma');
+  lbMAin.Font.Size := Ini.ReadInteger('Main', 'FontSize', 15);
 
   if Ini.ReadBool('Main', 'Sound', True) then MediaPlayer1.Play else MediaPlayer1.Pause;
 
@@ -207,7 +214,7 @@ begin
   if k > 0 then
     for i := 0 to k - 1 do
       begin
-        st := ini.ReadString('Main', IntToStr(i), 'ERROR');
+        st := Ini.ReadString('Main', IntToStr(i), 'ERROR');
         lbMain.Items.Add(st);
       end;
 
@@ -218,6 +225,10 @@ procedure TfMain.FormDestroy(Sender: TObject);
 var i, k: integer;
 begin
   Ini.WriteInteger('Main', 'Color', fMain.Color);
+
+  {запись типа и размера шрифта}
+  Ini.WriteString('Main', 'FontType', lbMain.Font.Name);
+  Ini.WriteInteger('Main', 'FontSize', lbMain.Font.Size);
 
   k := lbMain.Count;
   if k > 0 then
@@ -294,6 +305,21 @@ end;
 procedure TfMain.TimerTimer(Sender: TObject);
 begin
   StatusBar1.Panels[1].Text := DateTimeToStr(Date + Time);
+end;
+
+procedure TfMain.Word1Click(Sender: TObject);
+var Word: variant; i: integer; st: string;
+begin
+Word := CreateOleObject('Word.Application');
+Word.Documents.Add;
+Word.Visible:=Visible;
+
+Word.ActiveDocument.Range.InsertBefore('Список объектов:' + #13#10#13#10);
+for i := 0 to lbMAin.Items.Count - 1 do
+  begin
+    st := lbMAin.Items[i];
+    Word.ActiveDocument.Range.InsertAfter(st + ' (Статус: ' + ini.ReadString(st, 'Status', 'Нет данных') + ' (Оценка: ' + ini.ReadString(st, 'Rate', 'Нет данных') + ')' + #13#10);
+  end;
 end;
 
 end.
