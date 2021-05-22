@@ -2999,7 +2999,6 @@ object fMain: TfMain
         Text = #1054#1093#1074#1072#1090#1102#1082' '#1045#1074#1075#1077#1085#1080#1081' '#1057#1055'205'
         Width = 50
       end>
-    ExplicitTop = 455
   end
   object MediaPlayer1: TMediaPlayer
     Left = 433

@@ -732,6 +732,16 @@ object fRofl: TfRofl
     Font.Style = []
     ParentFont = False
   end
+  object Label3: TLabel
+    Left = 3
+    Top = 296
+    Width = 33
+    Height = 16
+    Caption = #1052#1058#1069#1050
+    OnClick = Label3Click
+    OnMouseDown = Label3MouseDown
+    OnMouseUp = Label3MouseUp
+  end
   object BitBtn1: TBitBtn
     Left = 179
     Top = 195

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.jpeg;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.jpeg, ShellAPI;
 
 type
   TfRofl = class(TForm)
@@ -15,8 +15,14 @@ type
     le2: TLabeledEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
+    procedure Label3MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Label3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -49,6 +55,23 @@ end;
 procedure TfRofl.FormActivate(Sender: TObject);
 begin
   le1.SetFocus;
+end;
+
+procedure TfRofl.Label3Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'http://www.mtec.by', '', '', SW_SHOWNORMAL);
+end;
+
+procedure TfRofl.Label3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  Label3.Font.Color := clWhite;
+end;
+
+procedure TfRofl.Label3MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  Label3.Font.Color := clBlack;
 end;
 
 end.
