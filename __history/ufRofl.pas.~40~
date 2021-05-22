@@ -21,6 +21,8 @@ type
     procedure Label3Click(Sender: TObject);
     procedure Label3MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Label3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -29,6 +31,7 @@ type
 
 var
   fRofl: TfRofl;
+  password: string[30];
 
 implementation
 
@@ -38,8 +41,10 @@ uses ufMAin;
 
 procedure TfRofl.BitBtn1Click(Sender: TObject);
 begin
-  if le2.Text = '1234' then
+  if le2.Text = password then
     begin
+      ShowMessage('Добро пожаловать, ' + le1.Text + '!' + #13#10 + 'Рады вас видеть!');
+      MessageDlg('Успешный вход', mtError , mbOKCancel, 0);
       fMain.Show;
       fRofl.Hide;
     end
@@ -53,6 +58,7 @@ end;
 procedure TfRofl.FormActivate(Sender: TObject);
 begin
   le1.SetFocus;
+  password := '1234';
 end;
 
 procedure TfRofl.Label3Click(Sender: TObject);
@@ -60,10 +66,16 @@ begin
   ShellExecute(0, 'open', 'http://www.mtec.by', '', '', SW_SHOWNORMAL);
 end;
 
-procedure TfRofl.Label3MouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfRofl.Label3MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Label3.Font.Color := clWhite;
+end;
+
+procedure TfRofl.Label3MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  Label3.Font.Color := clBlack;
 end;
 
 end.
