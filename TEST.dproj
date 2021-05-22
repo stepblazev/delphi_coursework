@@ -121,6 +121,10 @@
             <Form>fRofl</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="ufStats.pas">
+            <Form>Stats</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

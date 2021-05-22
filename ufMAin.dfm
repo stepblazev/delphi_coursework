@@ -3017,6 +3017,10 @@ object fMain: TfMain
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       OnClick = N5Click
     end
+    object N6: TMenuItem
+      Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+      OnClick = N6Click
+    end
     object N4: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
     end

@@ -6,7 +6,8 @@ uses
   ufAddGame in 'ufAddGame.pas' {fAddGame},
   ufChange in 'ufChange.pas' {fChange},
   ufSettings in 'ufSettings.pas' {fSettings},
-  ufRofl in 'ufRofl.pas' {fRofl};
+  ufRofl in 'ufRofl.pas' {fRofl},
+  ufStats in 'ufStats.pas' {Stats};
 
 {$R *.res}
 
@@ -18,5 +19,6 @@ begin
   Application.CreateForm(TfAddGame, fAddGame);
   Application.CreateForm(TfChange, fChange);
   Application.CreateForm(TfSettings, fSettings);
+  Application.CreateForm(TStats, Stats);
   Application.Run;
 end.

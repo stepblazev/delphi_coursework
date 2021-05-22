@@ -44,6 +44,7 @@ type
     Word1: TMenuItem;
     N4: TMenuItem;
     WordApp: TWordApplication;
+    N6: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -75,7 +76,7 @@ implementation
 
 {$R *.dfm}
 
-uses ufAddGame, ufChange, ufSettings, ufRofl;
+uses ufAddGame, ufChange, ufSettings, ufRofl, ufStats;
 
 procedure TfMain.bAddClick(Sender: TObject);
 begin
@@ -298,8 +299,7 @@ end;
 
 procedure TfMain.N6Click(Sender: TObject);
 begin
-  if cd1.Execute then
-    fMain.Color := cd1.Color;
+  Stats.Show;
 end;
 
 procedure TfMain.TimerTimer(Sender: TObject);
