@@ -14,10 +14,8 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
     lsCount: TLabel;
     lsAvgRate: TLabel;
-    lsCountRate: TLabel;
     lsName: TLabel;
     procedure FormShow(Sender: TObject);
   private
@@ -36,20 +34,19 @@ implementation
 uses ufMAin;
 
 procedure TStats.FormShow(Sender: TObject);
-var i: integer; avg: extended;
+var i: integer; avg, t: extended; st: string;
 begin
   lsName.Caption := fMain.StatusBar1.Panels[0].Text;
   lsCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
 
   if (fMain.lbMAin.Items.Count > 0) then
     begin
-
       avg := 0;
       for i := 0 to fMain.lbMAin.Items.Count - 1 do
         avg := avg + fMain.Ini.ReadInteger(fMain.lbMAin.Items[i], 'Rate', 10);
       avg := avg / fMain.lbMAin.Items.Count;
 
-      lsAvgRate.Caption := FloatToStr(avg);
+      lsAvgRate.Caption := format('%4.2f',[avg]) + ' из 10';
     end;
 end;
 

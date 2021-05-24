@@ -3,7 +3,7 @@ object Stats: TStats
   Top = 0
   BorderStyle = bsDialog
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
-  ClientHeight = 210
+  ClientHeight = 175
   ClientWidth = 458
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object Stats: TStats
     Left = 0
     Top = 0
     Width = 458
-    Height = 210
+    Height = 175
     Align = alClient
     Picture.Data = {
       0A544A504547496D6167655D670100FFD8FFE000104A46494600010100000100
@@ -2905,8 +2905,8 @@ object Stats: TStats
   object Label1: TLabel
     Left = 73
     Top = 8
-    Width = 304
-    Height = 48
+    Width = 297
+    Height = 40
     Caption = #1054#1073#1097#1072#1103' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1072
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
@@ -2954,22 +2954,9 @@ object Stats: TStats
     Font.Style = []
     ParentFont = False
   end
-  object Label5: TLabel
-    Left = 17
-    Top = 160
-    Width = 262
-    Height = 16
-    Caption = #1050#1086#1083'-'#1074#1086' '#1086#1073#1098#1077#1082#1090#1086#1074' '#1089' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1086#1081' '#1086#1094#1077#1085#1082#1086#1081':'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object lsCount: TLabel
     Left = 154
-    Top = 118
+    Top = 117
     Width = 84
     Height = 13
     Caption = #1053#1077#1090' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080
@@ -2981,21 +2968,8 @@ object Stats: TStats
     ParentFont = False
   end
   object lsAvgRate: TLabel
-    Left = 123
-    Top = 141
-    Width = 84
-    Height = 13
-    Caption = #1053#1077#1090' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lsCountRate: TLabel
-    Left = 285
-    Top = 162
+    Left = 122
+    Top = 140
     Width = 84
     Height = 13
     Caption = #1053#1077#1090' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080

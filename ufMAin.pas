@@ -43,7 +43,6 @@ type
     MediaPlayer1: TMediaPlayer;
     Word1: TMenuItem;
     N4: TMenuItem;
-    WordApp: TWordApplication;
     N6: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
@@ -99,6 +98,8 @@ begin
   if lbMain.ItemIndex >= 0 then
     begin
       st := lbMain.Items[lbMain.ItemIndex];
+
+      DeleteFile(ini.ReadString(st, 'PictureDir', 'fffffff'));
       ini.EraseSection(st);
 
       for i := 0 to lbMain.Count - 1 do
@@ -109,29 +110,29 @@ begin
 
       lbMain.DeleteSelected;
 
-      lName.Caption := 'Игра не выбрана';
-      lStatus.Caption := 'Игра не выбрана';
-      lRate.Caption := 'Игра не выбрана';
-      mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
+      lName.Caption := 'Объект не выбран';
+      lStatus.Caption := 'Объект не выбран';
+      lRate.Caption := 'Объект не выбран';
+      mImage.Picture.LoadFromFile(ini.ReadString(st, 'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
       mComments.Clear;
 
       ini.WriteInteger('Main', 'CountGames', lbMain.Count);
       fMain.lCount.Caption := IntToStr(fMain.lbMAin.Items.Count);
     end
     else MessageBox(handle, PChar('Выберите объект для удаления!'), PChar('Ошибка'), MB_ICONWARNING);
-
 end;
 
 procedure TfMain.BitBtn1Click(Sender: TObject);
-var way: string[50];
+var s: string;
 begin
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Элемент не выбран'), PChar('Ошибка'), MB_ICONWARNING)
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
-      CopyFile(PChar(opd1.FileName), PChar(ExtractFileDir(Application.ExeName) + lName.Caption + '.png'), false);
-      ini.WriteString(lName.Caption, 'PictureDir', ExtractFileDir(Application.ExeName) + lName.Caption + '.png');
+      s := ExtractFilePath(Application.ExeName) + '\pictures\' + lName.Caption + '.png';
+      CopyFile(PChar(opd1.FileName), PChar(s) , false);
+      ini.WriteString(lName.Caption, 'PictureDir', s);
     end;
 end;
 
@@ -139,8 +140,10 @@ end;
 procedure TfMain.bSearchClick(Sender: TObject);
 var i, c: integer; s: string;
 begin
-  c := 0;
   s := InputBox('Поиск объекта','Введите название: ','');
+  if (s <> '') and (s <> ' ') then
+  begin
+  c := 0;
   for i := 0 to lbMain.Items.Count - 1 do
     if pos(AnsiLowerCase(lbMain.Items[i]), AnsiLowerCase(s)) > 0 then
       begin
@@ -168,6 +171,7 @@ begin
         break
       end;
   if c = 0 then MessageBox(handle, PChar('Элемент не найден'), PChar('Ошибка'), MB_ICONWARNING);
+  end;
 end;
 
 procedure TfMain.bSortClick(Sender: TObject);
@@ -255,7 +259,8 @@ begin
     lName.Caption := ini.ReadString(st, 'Name', 'Нет данных');
     lStatus.Caption := ini.ReadString(st, 'Status', 'Нет данных');
     lRate.Caption := ini.ReadString(st, 'Rate', 'Нет данных');
-    mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFileDir(Application.ExeName) + '\unnamed.png'));
+
+    mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFilePath(Application.ExeName) + '\unnamed.png'));
 
     Image1.Show;
     case StrToInt(lRate.Caption) of

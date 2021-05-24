@@ -23,6 +23,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure Label3MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +59,11 @@ procedure TfRofl.FormActivate(Sender: TObject);
 begin
   le1.SetFocus;
   password := '1234';
+end;
+
+procedure TfRofl.FormCreate(Sender: TObject);
+begin
+  Application.Title := 'AutoRate';
 end;
 
 procedure TfRofl.Label3Click(Sender: TObject);

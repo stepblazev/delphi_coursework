@@ -118,14 +118,14 @@ procedure TfSettings.FormActivate(Sender: TObject);
 begin
   CBsound.Checked := fMain.ini.ReadBool('Main', 'Sound', True);
   pColor.Color := fMain.Color;
-  pColor.Top := 40;
-  pColor.Left := 135;
+  pColor.Top := 55;
+  pColor.Left := 180;
 
-  bColor.Top := 126;
-  bColor.Left := 135;
+  bColor.Top := 150;
+  bColor.Left := 180;
 
-  CBsound.Top := 42;
-  CBsound.Left := 144;
+  CBsound.Top := 55;
+  CBsound.Left := 180;
 end;
 
 procedure TfSettings.FormClose(Sender: TObject; var Action: TCloseAction);

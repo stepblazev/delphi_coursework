@@ -14,6 +14,7 @@ object fRofl: TfRofl
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 120
   TextHeight = 16
   object Image1: TImage
@@ -774,10 +775,13 @@ object fRofl: TfRofl
     Top = 153
     Width = 241
     Height = 24
+    Hint = #1055#1072#1088#1086#1083#1100': 1234'
     EditLabel.Width = 43
     EditLabel.Height = 16
     EditLabel.Caption = #1055#1072#1088#1086#1083#1100
+    ParentShowHint = False
     PasswordChar = '*'
+    ShowHint = True
     TabOrder = 2
   end
 end
