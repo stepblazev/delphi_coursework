@@ -44,6 +44,7 @@ type
     Word1: TMenuItem;
     N4: TMenuItem;
     N6: TMenuItem;
+    N7: TMenuItem;
     procedure TimerTimer(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -61,6 +62,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure Word1Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,15 +77,16 @@ implementation
 
 {$R *.dfm}
 
-uses ufAddGame, ufChange, ufSettings, ufRofl, ufStats;
+uses ufAddGame, ufChange, ufSettings, ufRofl, ufStats, ufContacts;
 
 procedure TfMain.bAddClick(Sender: TObject);
 begin
-  fAddGame.ShowModal;
+  fAddGame.ShowModal;  //открывает окно добавления объекта
 end;
 
 procedure TfMain.bChangeClick(Sender: TObject);
 begin
+  {проверяет выбранный элемент и открывет окно для его редактирования}
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Выберите объект для изменения!'), PChar('Ошибка'), MB_ICONWARNING)
   else
@@ -95,6 +98,8 @@ var st: string[30];
     i, k: integer;
 begin
   Image1.Hide;
+
+  {проверяет выбранный объект и удаляет данные о нем в ListBox и в .ini фалйе}
   if lbMain.ItemIndex >= 0 then
     begin
       st := lbMain.Items[lbMain.ItemIndex];
@@ -125,13 +130,18 @@ end;
 procedure TfMain.BitBtn1Click(Sender: TObject);
 var s: string;
 begin
+  {проверяет выбранный объект и позволяет загрузить любую картинку для него}
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Элемент не выбран'), PChar('Ошибка'), MB_ICONWARNING)
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
       s := ExtractFilePath(Application.ExeName) + '\pictures\' + lName.Caption + '.png';
+
+      {картинка копируется в отдельную папку "pictures"}
       CopyFile(PChar(opd1.FileName), PChar(s) , false);
+
+      {путь до картинки сохраняется в .ini файл}
       ini.WriteString(lName.Caption, 'PictureDir', s);
     end;
 end;
@@ -140,6 +150,8 @@ end;
 procedure TfMain.bSearchClick(Sender: TObject);
 var i, c: integer; s: string;
 begin
+  {данная процедура выполняет поиск элемента в ListBox}
+  {}
   s := InputBox('Поиск объекта','Введите название: ','');
   if (s <> '') and (s <> ' ') then
   begin
@@ -177,6 +189,9 @@ end;
 procedure TfMain.bSortClick(Sender: TObject);
 var i, h: integer; st1, st2: string[30];
 begin
+  {данная процедура сортирует все элементы в ListBox}
+  {сортировка проходит по первому символу названия}
+  {используется Пузырьковый метод сортировки}
   st1 := ''; st2 := '';
   for h := 1 to lbMain.Items.Count - 1 do
     begin
@@ -195,26 +210,32 @@ end;
 
 procedure TfMain.FormActivate(Sender: TObject);
 begin
+  {отображает логин в StatusBar, который пользователь ввел при запуске программы}
   StatusBar1.Panels[0].Text := fRofl.le1.Text;
 end;
 
 procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  fRofl.Close;
+  fRofl.Close;   //закрывает программу
 end;
 
 procedure TfMain.FormCreate(Sender: TObject);
 var i, k: integer; st: string[30];
 begin
+  {создается .ini файл}
   ini := TIniFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
 
+  {загружает цвет интерфейса из .ini файла}
   fMain.Color := Ini.ReadInteger('Main', 'Color', fMain.Color);
 
+  {загружает тип и размер шрифта из .ini файла}
   lbMAin.Font.Name := Ini.ReadString('Main', 'FontType', 'Tahoma');
   lbMAin.Font.Size := Ini.ReadInteger('Main', 'FontSize', 15);
 
+  {загружает состояние MediaPlayer}
   if Ini.ReadBool('Main', 'Sound', True) then MediaPlayer1.Play else MediaPlayer1.Pause;
 
+  {загружает все сохраненные объекты из .ini файла в ListBox}
   k := ini.ReadInteger('Main', 'CountGames', 0);
   if k > 0 then
     for i := 0 to k - 1 do
@@ -223,18 +244,21 @@ begin
         lbMain.Items.Add(st);
       end;
 
+  {выводит количество всех объектов в Label}
   lCount.Caption := IntToStr(lbMAin.Items.Count);
 end;
 
 procedure TfMain.FormDestroy(Sender: TObject);
 var i, k: integer;
 begin
+  {запись цвета интерфейса}
   Ini.WriteInteger('Main', 'Color', fMain.Color);
 
   {запись типа и размера шрифта}
   Ini.WriteString('Main', 'FontType', lbMain.Font.Name);
   Ini.WriteInteger('Main', 'FontSize', lbMain.Font.Size);
 
+  {записывает все объекты в .ini файл}
   k := lbMain.Count;
   if k > 0 then
     begin
@@ -243,25 +267,28 @@ begin
         Ini.WriteString('Main', IntToStr(i), lbMain.Items[i]);
     end;
 
+  {очистка .ini}
   Ini.Free;
 end;
 
 procedure TfMain.lbMAinClick(Sender: TObject);
 var st: string[30];
 begin
+  {проверяет какой объект выбран}
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Выберите объект!'), PChar('Ошибка'), MB_ICONWARNING)
   else
   begin
-
+    {выводит информацию об объекте}
     st := lbMain.Items[lbMain.ItemIndex];
-
     lName.Caption := ini.ReadString(st, 'Name', 'Нет данных');
     lStatus.Caption := ini.ReadString(st, 'Status', 'Нет данных');
     lRate.Caption := ini.ReadString(st, 'Rate', 'Нет данных');
 
+    {загрузка картинку для определенного объекта}
     mImage.Picture.LoadFromFile(ini.ReadString(st,'PictureDir', ExtractFilePath(Application.ExeName) + '\unnamed.png'));
 
+    {подгрузка визуального рейтинга, а именно звезд}
     Image1.Show;
     case StrToInt(lRate.Caption) of
       0: Image1.Picture.LoadFromFile('0stars.png');
@@ -277,12 +304,14 @@ begin
       10: Image1.Picture.LoadFromFile('10stars.png')
     end;
 
+    {выводит комментарий об объекте}
     mComments.Text := ini.ReadString(st, 'Comments', 'Нет данных');
   end;
 end;
 
 procedure TfMain.N2Click(Sender: TObject);
 begin
+{сохраняет список объектов в файл .txt}
   if sd1.Execute then
     begin
       if pos('.txt', sd1.FileName) > 0 then
@@ -299,26 +328,34 @@ end;
 
 procedure TfMain.N5Click(Sender: TObject);
 begin
-  fSettings.ShowModal;
+  fSettings.ShowModal;  //открывает окно настроек
 end;
 
 procedure TfMain.N6Click(Sender: TObject);
 begin
-  Stats.Show;
+  Stats.Show;    //открывает окно статистики
+end;
+
+procedure TfMain.N7Click(Sender: TObject);
+begin
+  fContacts.ShowModal;
 end;
 
 procedure TfMain.TimerTimer(Sender: TObject);
 begin
+  {служит для отображения даты и времени в рельном вермени}
   StatusBar1.Panels[1].Text := DateTimeToStr(Date + Time);
 end;
 
 procedure TfMain.Word1Click(Sender: TObject);
 var Word: variant; i: integer; st: string;
 begin
+{выводит список объектов и их информацию в документ word}
 Word := CreateOleObject('Word.Application');
 Word.Documents.Add;
 Word.Visible:=Visible;
 
+{здесь осуществляется сам вывод}
 Word.ActiveDocument.Range.InsertBefore('Список объектов:' + #13#10#13#10);
 for i := 0 to lbMAin.Items.Count - 1 do
   begin

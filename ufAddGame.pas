@@ -35,9 +35,16 @@ implementation
 uses ufChange;
 
 procedure TfAddGame.bAddGameClick(Sender: TObject);
+var c: word; i: integer;
 begin
-if (leName.Text = '') or (leName.Text = ' ') then
-ShowMessage('Вы не ввели название!' + #13#10 + 'Повторите попытку!')
+c := 0;
+
+for i := 0 to fMain.lbMAin.Items.Count - 1 do
+  if leName.Text = fMain.lbMAin.Items[i] then
+    c := 1;
+
+if (leName.Text = '') or (leName.Text = ' ') or (c = 1) then
+ShowMessage('Вы не ввели название, или данный объект уже существует!' + #13#10 + 'Повторите попытку!')
 else
 begin
   fMain.lbMAin.Items.Add(leName.Text);

@@ -3100,6 +3100,10 @@ object fMain: TfMain
     object N4: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
     end
+    object N7: TMenuItem
+      Caption = #1050#1086#1085#1090#1072#1082#1090#1099
+      OnClick = N7Click
+    end
   end
   object Timer: TTimer
     OnTimer = TimerTimer

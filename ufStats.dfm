@@ -2993,4 +2993,13 @@ object Stats: TStats
     Font.Style = [fsUnderline]
     ParentFont = False
   end
+  object cButton: TBitBtn
+    Left = 374
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = #1047#1072#1082#1088#1099#1090#1100
+    TabOrder = 0
+    OnClick = cButtonClick
+  end
 end

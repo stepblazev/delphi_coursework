@@ -7,7 +7,8 @@ uses
   ufChange in 'ufChange.pas' {fChange},
   ufSettings in 'ufSettings.pas' {fSettings},
   ufRofl in 'ufRofl.pas' {fRofl},
-  ufStats in 'ufStats.pas' {Stats};
+  ufStats in 'ufStats.pas' {Stats},
+  ufContacts in 'ufContacts.pas' {fContacts};
 
 {$R *.res}
 
@@ -20,5 +21,6 @@ begin
   Application.CreateForm(TfChange, fChange);
   Application.CreateForm(TfSettings, fSettings);
   Application.CreateForm(TStats, Stats);
+  Application.CreateForm(TfContacts, fContacts);
   Application.Run;
 end.

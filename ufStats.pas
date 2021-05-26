@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.jpeg, IniFiles;
+  Vcl.Imaging.jpeg, IniFiles, Vcl.Buttons;
 
 type
   TStats = class(TForm)
@@ -17,7 +17,9 @@ type
     lsCount: TLabel;
     lsAvgRate: TLabel;
     lsName: TLabel;
+    cButton: TBitBtn;
     procedure FormShow(Sender: TObject);
+    procedure cButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +34,11 @@ implementation
 {$R *.dfm}
 
 uses ufMAin;
+
+procedure TStats.cButtonClick(Sender: TObject);
+begin
+  Stats.Close;
+end;
 
 procedure TStats.FormShow(Sender: TObject);
 var i: integer; avg, t: extended; st: string;
