@@ -73,7 +73,7 @@ object fContacts: TfContacts
     Top = 198
     Width = 120
     Height = 21
-    Caption = '+3754472***00'
+    Caption = '+375447****00'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -17

@@ -119,6 +119,7 @@ object fMain: TfMain
     Top = 209
     Width = 7
     Height = 16
+    Anchors = [akRight, akBottom]
     Caption = '0'
   end
   object Label5: TLabel
@@ -126,6 +127,7 @@ object fMain: TfMain
     Top = 209
     Width = 73
     Height = 16
+    Anchors = [akRight, akBottom]
     Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086':'
   end
   object Image1: TImage

@@ -1,0 +1,47 @@
+unit ufContacts;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls, Vcl.Buttons;
+
+type
+  TfContacts = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Image1: TImage;
+    BitBtn1: TBitBtn;
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fContacts: TfContacts;
+
+implementation
+
+{$R *.dfm}
+
+uses ufMAin;
+
+procedure TfContacts.FormActivate(Sender: TObject);
+begin
+  fContacts.Color := fMain.Color;
+end;
+
+end.

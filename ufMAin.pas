@@ -86,7 +86,7 @@ end;
 
 procedure TfMain.bChangeClick(Sender: TObject);
 begin
-  {проверяет выбранный элемент и открывет окно для его редактирования}
+  {проверяет выбранный элемент и открывет окно для редактирования}
   if lbMain.ItemIndex < 0 then
     MessageBox(handle, PChar('Выберите объект для изменения!'), PChar('Ошибка'), MB_ICONWARNING)
   else
@@ -99,7 +99,7 @@ var st: string[30];
 begin
   Image1.Hide;
 
-  {проверяет выбранный объект и удаляет данные о нем в ListBox и в .ini фалйе}
+  {проверяет выбранный объект и удаляет данные о нем в ListBox и в .ini файле}
   if lbMain.ItemIndex >= 0 then
     begin
       st := lbMain.Items[lbMain.ItemIndex];
