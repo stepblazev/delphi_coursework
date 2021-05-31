@@ -64,6 +64,7 @@ end;
 procedure TfRofl.FormCreate(Sender: TObject);
 begin
   Application.Title := 'AutoRate';
+  Application.MainFormOnTaskBar := false;
 end;
 
 procedure TfRofl.Label3Click(Sender: TObject);

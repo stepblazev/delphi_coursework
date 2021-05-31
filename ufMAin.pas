@@ -136,7 +136,7 @@ begin
   else if opd1.Execute then
     begin
       mImage.Picture.LoadFromFile(opd1.FileName);
-      s := ExtractFilePath(Application.ExeName) + '\pictures\' + lName.Caption + '.png';
+      s := ExtractFilePath(Application.ExeName) + '\pictures\' + ExtractFileName(opd1.FileName);
 
       {картинка копируется в отдельную папку "pictures"}
       CopyFile(PChar(opd1.FileName), PChar(s) , false);
