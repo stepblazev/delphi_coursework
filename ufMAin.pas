@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Buttons,
   Vcl.ExtCtrls, IniFiles, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs,
-  Vcl.MPlayer, Vcl.OleServer, WordXP, ComObj;
+  Vcl.MPlayer, Vcl.OleServer, WordXP, ComObj, ShellAPI;
 
 type
   TfMain = class(TForm)
@@ -63,6 +63,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Word1Click(Sender: TObject);
     procedure N7Click(Sender: TObject);
+    procedure N4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -324,6 +325,11 @@ end;
 procedure TfMain.N3Click(Sender: TObject);
 begin
   fMain.Close;
+end;
+
+procedure TfMain.N4Click(Sender: TObject);
+begin
+ShellExecute(Handle, 'open', 'help.chm', nil, nil, SW_SHOW);
 end;
 
 procedure TfMain.N5Click(Sender: TObject);

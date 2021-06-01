@@ -2913,7 +2913,7 @@ object fMain: TfMain
   end
   object pMain: TPanel
     Left = 0
-    Top = 282
+    Top = 280
     Width = 694
     Height = 174
     Anchors = [akLeft, akRight, akBottom]
@@ -3101,6 +3101,7 @@ object fMain: TfMain
     end
     object N4: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
+      OnClick = N4Click
     end
     object N7: TMenuItem
       Caption = #1050#1086#1085#1090#1072#1082#1090#1099
