@@ -1,2 +1,2 @@
 # delphi_coursework
-first courswork for college
+first coursework for college
